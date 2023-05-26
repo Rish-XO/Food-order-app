@@ -12,17 +12,15 @@ function AvailableMeals() {
         "https://react-http-bff42-default-rtdb.firebaseio.com/meals.json"
       );
       const responseData = await response.json();
-      console.log(responseData);
 
       const loadedMeals = [];
 
       for (const key in responseData) {
-        console.log(key);
         loadedMeals.push({
           id: key,
           name: responseData[key].name,
           description: responseData[key].description,
-          price: +responseData[key].price,
+          price: responseData[key].price,
         });
       }
 
